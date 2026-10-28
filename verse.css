@@ -1,7 +1,7 @@
 .daily-verse {
   position: absolute;
   z-index: 2;
-  top: 310px;
+  top: 268px;
   right: 8vw;
   width: 355px;
   margin: 0;
@@ -19,6 +19,41 @@
 .daily-verse cite { color: var(--muted); font: 500 10px var(--mono); font-style: normal; letter-spacing: .08em; text-transform: uppercase; }
 
 @media (max-width: 760px) {
+  .hero { min-height: 840px; }
   .daily-verse { top: 525px; right: 7vw; width: 250px; padding: 20px 19px; }
   .daily-verse blockquote { font-size: 28px; }
 }
+
+.verse-listening {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 18px -8px 0;
+  padding: 13px 8px 0;
+  color: var(--ink);
+  border-top: 1px dashed rgba(52, 73, 90, .3);
+  text-align: left;
+  text-decoration: none;
+}
+
+.verse-listening[hidden] { display: none; }
+.verse-listening .spotify-logo { flex: none; width: 26px; height: 26px; }
+.verse-listening span { min-width: 0; flex: 1; }
+.verse-listening small { display: block; margin-bottom: 3px; color: var(--moss); font: 500 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.verse-listening b { display: -webkit-box; overflow: hidden; font-size: 12px; font-weight: 600; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.verse-listening i { flex: none; color: var(--moss); font-style: normal; transition: transform .2s ease; }
+.verse-listening:hover i { transform: translate(2px, -2px); }
+
+.music-visual {
+  position: absolute;
+  top: 82px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  transform: translateX(-50%);
+}
+
+.music .equalizer { position: static; transform: none; }
+.mic-icon { width: 46px; height: 69px; fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; transform: rotate(-12deg); }
+.mic-icon rect { fill: var(--ochre); fill-opacity: .45; }

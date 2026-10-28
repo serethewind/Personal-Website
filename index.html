@@ -43,6 +43,11 @@
           <p class="section-label">A daily word</p>
           <blockquote id="verse-text"></blockquote>
           <cite id="verse-reference"></cite>
+          <a class="verse-listening" id="spotify-track-link" href="https://open.spotify.com/" target="_blank" rel="noreferrer" hidden>
+            <svg class="spotify-logo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ed760" /><path d="M6.4 9.1c3.7-1.1 8-.8 11.2 1.1M7 12.3c3.1-.9 6.5-.6 9.2.9M7.7 15.3c2.4-.7 5-.5 7.2.7" fill="none" stroke="#121212" stroke-width="1.7" stroke-linecap="round" /></svg>
+            <span><small id="listening-meta">Now listening</small><b id="listening-status"></b></span>
+            <i aria-hidden="true">↗</i>
+          </a>
         </aside>
         <div class="hero-stamp" aria-hidden="true"><span>MADE SLOWLY,</span><b>IN LAGOS</b></div>
       </section>
@@ -112,11 +117,13 @@
           </article>
           <article class="thing music">
             <span class="thing-number">B</span>
-            <div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <h3>I make music<br />for the <em>unspoken</em><br />parts.</h3>
-            <p id="listening-status">Loading the listening room…</p>
-            <a id="spotify-track-link" href="https://open.spotify.com/" target="_blank" rel="noreferrer" hidden>Open in Spotify <b>↗</b></a>
-            <span class="coming-soon" id="listening-meta">Now listening</span>
+            <div class="music-visual" aria-hidden="true">
+              <svg class="mic-icon" viewBox="0 0 48 72"><rect x="13" y="3" width="22" height="38" rx="11" /><path d="M19 13h10M19 20h10M19 27h10" /><path d="M5 33a19 19 0 0 0 38 0M24 52v13M14 68h20" /></svg>
+              <div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <h3>Listen to<br />music <em>with</em><br />me.</h3>
+            <p id="music-track">Whatever’s playing in Lagos right now, straight from my Spotify.</p>
+            <a id="music-spotify-link" href="https://open.spotify.com/" target="_blank" rel="noreferrer" hidden>Listen on Spotify <b>↗</b></a>
           </article>
           <article class="thing milan">
             <span class="thing-number">C</span>

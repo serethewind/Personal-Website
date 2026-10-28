@@ -45,6 +45,8 @@ document.getElementById('verse-reference').textContent = `— ${reference}`;
 const listeningStatus = document.getElementById('listening-status');
 const listeningMeta = document.getElementById('listening-meta');
 const spotifyTrackLink = document.getElementById('spotify-track-link');
+const musicTrack = document.getElementById('music-track');
+const musicSpotifyLink = document.getElementById('music-spotify-link');
 
 async function loadListeningStatus() {
   try {
@@ -53,12 +55,15 @@ async function loadListeningStatus() {
 
     const track = await response.json();
     listeningStatus.textContent = `${track.name} — ${track.artist}`;
-    listeningMeta.textContent = track.status === 'now_playing' ? 'Now listening · Spotify' : 'Last listened · Spotify';
+    listeningMeta.textContent = track.status === 'now_playing' ? 'Now listening' : 'Last listened';
     spotifyTrackLink.href = track.url;
     spotifyTrackLink.hidden = false;
+    musicTrack.textContent = `${listeningMeta.textContent}: ${track.name} — ${track.artist}`;
+    musicSpotifyLink.href = track.url;
+    musicSpotifyLink.hidden = false;
   } catch {
-    listeningStatus.textContent = 'No genre manifesto. Just a different way to work through the noise.';
-    listeningMeta.textContent = 'Listening room / soon';
+    spotifyTrackLink.hidden = true;
+    musicSpotifyLink.hidden = true;
   }
 }
 
