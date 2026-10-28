@@ -28,6 +28,16 @@ const verses = [
   ['For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.', '2 Timothy 1:7'],
   ['Now the Lord of peace himself give you peace always by all means.', '2 Thessalonians 3:16'],
   ['For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.', 'Ephesians 2:8'],
+  ['The Lord is my shepherd; I shall not want.', 'Psalm 23:1'],
+  ['Trust in the Lord with all thine heart; and lean not unto thine own understanding.', 'Proverbs 3:5'],
+  ['Be still, and know that I am God.', 'Psalm 46:10'],
+  ['This is the day which the Lord hath made; we will rejoice and be glad in it.', 'Psalm 118:24'],
+  ['Thy word is a lamp unto my feet, and a light unto my path.', 'Psalm 119:105'],
+  ['Commit thy works unto the Lord, and thy thoughts shall be established.', 'Proverbs 16:3'],
+  ['Cast thy burden upon the Lord, and he shall sustain thee.', 'Psalm 55:22'],
+  ['Fear thou not; for I am with thee.', 'Isaiah 41:10'],
+  ['Come unto me, all ye that labour and are heavy laden, and I will give you rest.', 'Matthew 11:28'],
+  ['And whatsoever ye do, do it heartily, as to the Lord, and not unto men.', 'Colossians 3:23'],
 ];
 
 const lagosDate = new Intl.DateTimeFormat('en-CA', {
@@ -37,10 +47,30 @@ const lagosDate = new Intl.DateTimeFormat('en-CA', {
   day: '2-digit',
 }).format(new Date());
 const dayNumber = Math.floor(new Date(`${lagosDate}T00:00:00Z`).getTime() / 86_400_000);
-const [verse, reference] = verses[dayNumber % verses.length];
+const verseCard = document.querySelector('.daily-verse');
+const verseText = document.getElementById('verse-text');
+const verseReference = document.getElementById('verse-reference');
+let verseIndex = dayNumber % verses.length;
 
-document.getElementById('verse-text').textContent = `“${verse}”`;
-document.getElementById('verse-reference').textContent = `— ${reference}`;
+function showVerse(index) {
+  const [verse, reference] = verses[index];
+  verseText.textContent = `“${verse}”`;
+  verseText.classList.toggle('is-long', verse.length > 55);
+  verseReference.textContent = `— ${reference}`;
+}
+
+showVerse(verseIndex);
+
+// A new verse per click; nothing is stored, so a reload returns to the day's verse.
+verseCard.addEventListener('click', (event) => {
+  if (event.target.closest('a')) return;
+  verseIndex = (verseIndex + 1 + Math.floor(Math.random() * (verses.length - 1))) % verses.length;
+  verseCard.classList.add('is-changing');
+  setTimeout(() => {
+    showVerse(verseIndex);
+    verseCard.classList.remove('is-changing');
+  }, 180);
+});
 
 const listeningStatus = document.getElementById('listening-status');
 const listeningMeta = document.getElementById('listening-meta');

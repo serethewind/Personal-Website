@@ -12,6 +12,23 @@
   box-shadow: 7px 8px 0 rgba(134, 120, 99, .12);
   transform: rotate(-2.4deg);
   text-align: center;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.daily-verse:hover { transform: rotate(-1.4deg) translateY(-3px); box-shadow: 10px 12px 0 rgba(134, 120, 99, .16); }
+.daily-verse blockquote, .daily-verse cite { transition: opacity .18s ease; }
+.daily-verse.is-changing blockquote, .daily-verse.is-changing cite { opacity: 0; }
+
+.verse-label { display: inline-grid; padding: 0; border: 0; background: none; cursor: pointer; }
+.verse-label > span { grid-area: 1 / 1; transition: opacity .2s ease; }
+.verse-label-hover { opacity: 0; }
+.daily-verse:hover .verse-label-default, .verse-label:focus-visible .verse-label-default { opacity: 0; }
+.daily-verse:hover .verse-label-hover, .verse-label:focus-visible .verse-label-hover { opacity: 1; }
+.verse-label:focus-visible { outline: 1px dashed var(--moss); outline-offset: 4px; }
+
+@media (hover: none) {
+  .verse-label-default::after { content: " · tap for another"; }
 }
 
 .daily-verse .section-label { color: var(--moss); }
@@ -57,3 +74,9 @@
 .music .equalizer { position: static; transform: none; }
 .mic-icon { width: 46px; height: 69px; fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; transform: rotate(-12deg); }
 .mic-icon rect { fill: var(--ochre); fill-opacity: .45; }
+
+.daily-verse blockquote.is-long { font-size: clamp(21px, 2vw, 27px); line-height: 1.06; }
+
+@media (max-width: 760px) {
+  .daily-verse blockquote.is-long { font-size: 22px; }
+}
