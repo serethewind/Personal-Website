@@ -1,0 +1,74 @@
+/* A lighter, notebook-like first spread for the personal introduction. */
+.now-card {
+  position: absolute;
+  z-index: 2;
+  right: 6vw;
+  bottom: 145px;
+  width: 270px;
+  padding: 22px 23px 20px;
+  background: #fffaf0;
+  border: 1px solid rgba(52, 73, 90, .28);
+  box-shadow: 6px 7px 0 rgba(110, 136, 115, .2);
+  transform: rotate(3deg);
+}
+
+.now-card::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  right: 12px;
+  width: 67px;
+  height: 18px;
+  background: rgba(207, 170, 99, .48);
+  transform: rotate(-3deg);
+}
+
+.now-card p {
+  position: relative;
+  margin: 0 0 22px;
+  color: var(--moss);
+  font: 500 9px var(--mono);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.now-card h2 {
+  position: relative;
+  margin: 0 0 21px;
+  font-size: 27px;
+  line-height: .92;
+  letter-spacing: -.055em;
+}
+
+.now-card h2 em {
+  color: var(--moss);
+  font-family: var(--serif);
+  font-weight: 400;
+}
+
+.now-card span {
+  position: relative;
+  color: var(--muted);
+  font: 500 9px var(--mono);
+  letter-spacing: .04em;
+}
+
+.hero::after {
+  right: 7vw;
+  bottom: 48px;
+  width: 330px;
+  height: 142px;
+  border: 1px dashed rgba(110, 136, 115, .5);
+  border-radius: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 26px, rgba(91, 112, 124, .12) 27px), #f5eeda;
+  opacity: 1;
+  transform: rotate(-5deg);
+}
+
+.hero h1 { margin-bottom: 244px; }
+
+@media (max-width: 760px) {
+  .hero h1 { margin-bottom: 72px; }
+  .hero::after { right: -110px; bottom: -30px; width: 300px; height: 130px; }
+  .now-card { display: none; }
+}

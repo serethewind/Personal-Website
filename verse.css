@@ -1,0 +1,24 @@
+.daily-verse {
+  position: absolute;
+  z-index: 2;
+  top: 310px;
+  right: 8vw;
+  width: 355px;
+  margin: 0;
+  padding: 26px 30px 23px;
+  color: var(--ink);
+  background: #fffaf0;
+  border: 1px solid rgba(52, 73, 90, .25);
+  box-shadow: 7px 8px 0 rgba(134, 120, 99, .12);
+  transform: rotate(-2.4deg);
+  text-align: center;
+}
+
+.daily-verse .section-label { color: var(--moss); }
+.daily-verse blockquote { margin: 14px 0 9px; font: 400 clamp(24px, 2.8vw, 39px)/1.02 var(--serif); letter-spacing: -.03em; }
+.daily-verse cite { color: var(--muted); font: 500 10px var(--mono); font-style: normal; letter-spacing: .08em; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  .daily-verse { top: 525px; right: 7vw; width: 250px; padding: 20px 19px; }
+  .daily-verse blockquote { font-size: 28px; }
+}

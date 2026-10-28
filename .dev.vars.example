@@ -1,0 +1,4 @@
+# Copy these values into Cloudflare Pages environment variables. Never commit real values.
+SPOTIFY_CLIENT_ID=
+SPOTIFY_CLIENT_SECRET=
+SPOTIFY_REFRESH_TOKEN=
