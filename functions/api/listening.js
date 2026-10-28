@@ -42,7 +42,8 @@ export async function onRequestGet({ request, env }) {
   }
 
   const cache = caches.default;
-  const cacheKey = new Request(request.url, request);
+  // Ignore the query string so ?anything can't bypass the cache and hammer Spotify.
+  const cacheKey = new Request(new URL('/api/listening', request.url));
   const cached = await cache.match(cacheKey);
   if (cached) return cached;
 
